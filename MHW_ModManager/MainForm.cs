@@ -151,20 +151,20 @@ public partial class MainForm : Form {
             file.belongingNode.Checked = file.GetInstalledStatus();
             if (!file.isDir && file.isTopFile && !instance.modsData.useTopLevelFiles) {
                 file.belongingNode.ForeColor = Color.DarkGray;
-                file.belongingNode.ToolTipText = "Ignored because it is a top-level file and the \"ignore top-level files\" option is on.";
+                file.belongingNode.ToolTipText = "文件被忽略，因为它是顶级文件，并且“忽略顶级文件”选项处于打开状态。";
 
             } else if (file.installed) {
                 if (file.installedNotMatching) {
                     file.belongingNode.ForeColor = Color.Orange;
-                    file.belongingNode.ToolTipText = "The file exists in the folder but it is not from this mod. (Checksums don't match)\n" +
-                        "   Select this file to see what mod the file actually belongs to.";
+                    file.belongingNode.ToolTipText = "该文件存在于文件夹中，但它不是来自这个模组。（校验和不匹配）\n" +
+                        "选择此文件以查看该文件实际属于哪个模组。";
                 } else {
                     file.belongingNode.ForeColor = Color.LawnGreen;
-                    file.belongingNode.ToolTipText = "This file is installed in the folder and the checksum matches this mod.";
+                    file.belongingNode.ToolTipText = "此文件安装在文件夹中，校验和与此模组匹配。";
                 }
             } else {
                 file.belongingNode.ForeColor = Color.LightYellow;
-                file.belongingNode.ToolTipText = "This file isn't found at all in the folder.";
+                file.belongingNode.ToolTipText = "在文件夹中根本找不到此文件.";
             }
             CheckTreeFilesInstalled(file.children);
         }
@@ -174,14 +174,14 @@ public partial class MainForm : Form {
         foreach (var file in topFiles) {
             file.belongingNode.Checked = instance.modsData.useTopLevelFiles || !file.isTopFile;
             if (!file.isDir && File.Exists(file.installedPath)) {
-                file.belongingNode.ToolTipText = "File exists from another mod.";
+                file.belongingNode.ToolTipText = "文件存在于另一个mod.";
                 file.belongingNode.ForeColor = Color.Coral;
             } else {
                 if (file.belongingNode.Checked) {
-                    file.belongingNode.ToolTipText = "File does not exist in the mod folder and is ready to be installed.";
+                    file.belongingNode.ToolTipText = "文件不存在鱼mod文件夹 准备安装吗.";
                     file.belongingNode.ForeColor = Color.WhiteSmoke;
                 } else {
-                    file.belongingNode.ToolTipText = "File is ignored because it is a top-level file and the \"ignore top-level files\" option is on.";
+                    file.belongingNode.ToolTipText = "文件被忽略，因为它是顶级文件，并且\"忽略顶级文件\"选项处于打开状态。";
                     file.belongingNode.ForeColor = Color.DarkGray;
                 }
             }
@@ -621,5 +621,18 @@ public partial class MainForm : Form {
             base.WndProc(ref m);
     }
 
-    
+    private void label2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void olvModList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void topPanel_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
 }
